@@ -14,20 +14,18 @@ class NewsListView extends ConsumerWidget {
 
     return newsListAsync.when(
       data: (newsList) {
-        return Expanded(
-          child: ListView.builder(
-            physics: const BouncingScrollPhysics(),
-            itemCount: newsList.length,
-            itemBuilder: (context, index) {
-              NewsModel article = newsList[index];
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: NewsCard(
-                  news: article,
-                ),
-              );
-            },
-          ),
+        return ListView.builder(
+          physics: const BouncingScrollPhysics(),
+          itemCount: newsList.length,
+          itemBuilder: (context, index) {
+            NewsModel article = newsList[index];
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: NewsCard(
+                news: article,
+              ),
+            );
+          },
         );
       },
       loading: () => const Center(child: CircularProgressIndicator()),

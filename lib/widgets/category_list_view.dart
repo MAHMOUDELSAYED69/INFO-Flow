@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:projectx/view/category_screen.dart';
 import 'package:projectx/widgets/category.dart';
 
 import '../model/category_model.dart';
 
 class CategoryListView extends StatelessWidget {
-   CategoryListView({super.key});
- final List<CategoryModel> categories = [
+  CategoryListView({super.key});
+  final List<CategoryModel> categories = [
     CategoryModel(
       image: 'assets/images/business.avif',
       title: 'Business',
@@ -43,10 +44,22 @@ class CategoryListView extends StatelessWidget {
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
-        itemCount:categories.length,
-        itemBuilder: (context, index) => CategoryCard(
-          category: categories[index],
-        ),),
+        itemCount: categories.length,
+        itemBuilder: (context, index) => GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CategoryScreen(
+                    category: categories[index].title,
+                  ),
+                ));
+          },
+          child: CategoryCard(
+            category: categories[index],
+          ),
+        ),
+      ),
     );
   }
 }

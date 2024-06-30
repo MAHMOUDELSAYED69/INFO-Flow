@@ -9,8 +9,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         centerTitle: true,
         elevation: 0,
+        shadowColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
         title: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -35,7 +38,6 @@ class HomePage extends StatelessWidget {
         children: [
           CategoryListView(),
           const SizedBox(height: 20),
-          //   const Expanded(child: NewsListViewBuilder())
           const Expanded(child: NewsListView())
         ],
       ),
