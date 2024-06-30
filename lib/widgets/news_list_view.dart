@@ -1,49 +1,37 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:projectx/model/news_model.dart';
-import 'package:projectx/services/news_service.dart';
 import 'package:projectx/widgets/news_card.dart';
 
-class NewsListView extends StatefulWidget {
-  const NewsListView({super.key});
+import '../provider/news_provider.dart';
+
+class NewsListView extends ConsumerWidget {
+  const NewsListView({Key? key}) : super(key: key);
 
   @override
-  State<NewsListView> createState() => _NewsListViewState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final newsListAsync = ref.watch(newsProvider);
 
-class _NewsListViewState extends State<NewsListView> {
-  List<NewsModel> news = [];
-
-  @override
-  void initState() {
-    super.initState();
-    getGeneralNews();
-  }
-
-  getGeneralNews() {
-    NewsWebService.getNews(category: "Sports").then((value) {
-      int countTitle = 0;
-      log(value[0].title.toString());
-      for (var element in value) {
-        countTitle++;
-        log("$countTitle: ${element.title}");
-      }
-    }).catchError((error) {
-      log(error);
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-        shrinkWrap: true,
-        physics: const BouncingScrollPhysics(),
-        itemCount: news.length,
-        itemBuilder: (context, index) => Padding(
-            padding: const EdgeInsets.only(bottom: 10),
-            child: NewsCard(
-              news: news[index],
-            )));
+    return newsListAsync.when(
+      data: (newsList) {
+        return Expanded(
+          child: ListView.builder(
+            physics: const BouncingScrollPhysics(),
+            itemCount: newsList.length,
+            itemBuilder: (context, index) {
+              NewsModel article = newsList[index];
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: NewsCard(
+                  news: article,
+                ),
+              );
+            },
+          ),
+        );
+      },
+      loading: () => const Center(child: CircularProgressIndicator()),
+      error: (error, stackTrace) => Center(child: Text('Error: $error')),
+    );
   }
 }

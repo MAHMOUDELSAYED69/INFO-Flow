@@ -1,11 +1,10 @@
-import 'dart:developer' as log;
 import 'package:flutter/foundation.dart';
 
-class PrintConsole {
-  PrintConsole._();
-  static logConole(Object? data, {String? title = "log:"}) {
+class Console {
+  Console._();
+  static log(Object? data, {String? title = "log:"}) {
     if (kDebugMode) {
-      log.log(data.toString(), name: title ?? "");
+      log(data.toString(), title: title ?? "");
       debugPrint("$title ${data.toString()}");
     }
   }
