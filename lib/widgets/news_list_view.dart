@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:projectx/model/news_model.dart';
 import 'package:projectx/services/news_service.dart';
@@ -20,10 +22,15 @@ class _NewsListViewState extends State<NewsListView> {
   }
 
   getGeneralNews() {
-    NewsService.getNews(url: '/posts', qurey: {}).then((value) {
-      print(value.data['title']);
-    }).catchError((Error) {
-      print(Error);
+    NewsWebService.getNews(category: "Sports").then((value) {
+      int countTitle = 0;
+      log(value[0].title.toString());
+      for (var element in value) {
+        countTitle++;
+        log("$countTitle: ${element.title}");
+      }
+    }).catchError((error) {
+      log(error);
     });
   }
 
