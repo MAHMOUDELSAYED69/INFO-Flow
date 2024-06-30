@@ -8,6 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawer: const Drawer(),
       appBar: AppBar(
         scrolledUnderElevation: 0,
         centerTitle: true,
@@ -44,3 +45,4 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+ 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../provider/news_provider.dart';
+import '../widgets/my_loading_indicator.dart';
+import 'post_details_screen.dart';
 
 class CategoryScreen extends ConsumerWidget {
   final String category;
@@ -9,7 +11,7 @@ class CategoryScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final newsListAsync = ref.watch(newsProvider);
+    final newsListAsync = ref.watch(newsProvider(category));
 
     return Scaffold(
       appBar: AppBar(
@@ -17,18 +19,52 @@ class CategoryScreen extends ConsumerWidget {
       ),
       body: newsListAsync.when(
         data: (newsList) {
-          return ListView.builder(
+          return ListView.separated(
+            separatorBuilder: (context, index) => Divider(
+              color: Colors.yellow[700],
+              height: 10,
+              thickness: 2,
+            ),
             itemCount: newsList.length,
             itemBuilder: (context, index) {
               final news = newsList[index];
               return ListTile(
-                title: Text(news.title.toString()),
-                subtitle: Text(news.description.toString()),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PostDetailsScreen(news: news),
+                      ));
+                },
+                title: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.network(
+                          news.urlToImage ??
+                              "https://about.fb.com/wp-content/uploads/2023/09/GettyImages-686732223.jpg",
+                          height: 200,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        )),
+                    const SizedBox(height: 10),
+                    if (news.title != null)
+                      Text(
+                        news.title.toString(),
+                        style: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                  ],
+                ),
+                subtitle: news.description != null
+                    ? Text(news.description.toString())
+                    : null,
               );
             },
           );
         },
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => const MyLoadingIndicator(),
         error: (error, stackTrace) =>
             const Center(child: Text('Error fetching data')),
       ),
