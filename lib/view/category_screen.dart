@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:projectx/constant/colors.dart';
+import 'package:projectx/extentions/extentions.dart';
 import '../provider/news_provider.dart';
 import '../widgets/my_loading_indicator.dart';
 import 'post_details_screen.dart';
@@ -21,14 +23,17 @@ class CategoryScreen extends ConsumerWidget {
         data: (newsList) {
           return ListView.separated(
             separatorBuilder: (context, index) => Divider(
-              color: Colors.yellow[700],
+              color: ColorManager.yellow,
               height: 10,
               thickness: 2,
+              endIndent: 10,
+              indent: 10,
             ),
             itemCount: newsList.length,
             itemBuilder: (context, index) {
               final news = newsList[index];
               return ListTile(
+                contentPadding: const EdgeInsets.symmetric(horizontal: 10),
                 onTap: () {
                   Navigator.push(
                       context,
@@ -52,13 +57,18 @@ class CategoryScreen extends ConsumerWidget {
                     if (news.title != null)
                       Text(
                         news.title.toString(),
-                        style: const TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
+                        style: context.textTheme.bodyLarge,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
                   ],
                 ),
                 subtitle: news.description != null
-                    ? Text(news.description.toString())
+                    ? Text(
+                        news.description.toString(),
+                        style: context.textTheme.displayMedium,
+                        maxLines: 2,
+                      )
                     : null,
               );
             },

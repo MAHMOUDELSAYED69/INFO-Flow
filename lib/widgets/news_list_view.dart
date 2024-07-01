@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:projectx/constant/colors.dart';
+import 'package:projectx/extentions/extentions.dart';
 import 'package:projectx/model/news_model.dart';
 import 'package:projectx/view/post_details_screen.dart';
 import 'package:projectx/widgets/news_card.dart';
@@ -17,10 +20,13 @@ class NewsListView extends ConsumerWidget {
     return newsListAsync.when(
       data: (newsList) {
         return ListView.separated(
+          
           separatorBuilder: (context, index) => Divider(
-            color: Colors.yellow[700],
-            height: 20,
+            color: ColorManager.yellow,
+            height: 20.h,
             thickness: 2,
+            endIndent: 10,
+            indent: 10,
           ),
           physics: const BouncingScrollPhysics(),
           itemCount: newsList.length,
@@ -39,7 +45,13 @@ class NewsListView extends ConsumerWidget {
         );
       },
       loading: () => const MyLoadingIndicator(),
-      error: (error, stackTrace) => Center(child: Text('Error: $error')),
+      error: (error, stackTrace) => Center(
+          child: Text(
+        'Error: $error',
+        textAlign: TextAlign.center,
+        style:
+            context.textTheme.bodyMedium?.copyWith(color: ColorManager.yellow),
+      )),
     );
   }
 }

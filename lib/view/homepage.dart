@@ -1,36 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:projectx/constant/colors.dart';
+import 'package:projectx/extentions/extentions.dart';
+import '../provider/theme_provider.dart';
 import '../widgets/category_list_view.dart';
 import '../widgets/news_list_view.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = ref.watch(themeProvider);
     return Scaffold(
-      endDrawer: const Drawer(),
+      endDrawer: SizedBox(
+        height: 80.h,
+        child: Drawer(
+          backgroundColor: context.theme.scaffoldBackgroundColor,
+          child: Center(
+            child: SwitchListTile(
+              title: Text(
+                "Theme Mode",
+                style: context.textTheme.bodyMedium,
+              ),
+              value: theme == ThemeEnum.dark,
+              onChanged: (value) {
+                ref.read(themeProvider.notifier).toggleTheme();
+              },
+            ),
+          ),
+        ),
+      ),
       appBar: AppBar(
-        scrolledUnderElevation: 0,
-        centerTitle: true,
-        elevation: 0,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
         title: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text(
-              "Info",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold),
+            Text(
+              "INFO ",
+              style: context.textTheme.bodyLarge,
             ),
             Text(
               "Flow",
-              style: TextStyle(
-                  color: Colors.yellow[700],
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold),
+              style: context.textTheme.bodyLarge
+                  ?.copyWith(color: ColorManager.yellow),
             )
           ],
         ),
@@ -38,11 +51,10 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: [
           CategoryListView(),
-          const SizedBox(height: 20),
+          SizedBox(height: 16.h),
           const Expanded(child: NewsListView())
         ],
       ),
     );
   }
 }
- 

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:projectx/extentions/extentions.dart';
 import 'package:projectx/model/news_model.dart';
 
 class NewsCard extends StatelessWidget {
@@ -16,27 +18,26 @@ class NewsCard extends StatelessWidget {
         children: [
           if (news.urlToImage != null)
             ClipRRect(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.r),
                 child: Image.network(
                   news.urlToImage.toString(),
-                  height: 200,
+                  height: 165.h,
                   width: double.infinity,
                   fit: BoxFit.cover,
                 )),
-          const SizedBox(height: 10),
+          SizedBox(height: 8.h),
           Text(
             overflow: TextOverflow.ellipsis,
             maxLines: 2,
             news.title.toString(),
-            style: const TextStyle(
-                color: Colors.black, fontSize: 32, fontWeight: FontWeight.bold),
+            style: context.textTheme.bodyLarge,
+            
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 8.h),
           Text(
             maxLines: 2,
             news.content.toString(),
-            style: const TextStyle(
-                color: Colors.grey, fontSize: 20, fontWeight: FontWeight.bold),
+            style: context.textTheme.displayMedium,
           ),
         ],
       ),

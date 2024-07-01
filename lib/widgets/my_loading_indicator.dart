@@ -1,5 +1,6 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:projectx/constant/colors.dart';
 
 class MyLoadingIndicator extends StatelessWidget {
   const MyLoadingIndicator({
@@ -9,10 +10,14 @@ class MyLoadingIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: CircularProgressIndicator(
-      color: Colors.yellow[700],
-      strokeCap: StrokeCap.round,
-      strokeWidth: 5,
-    ));
+        child: SizedBox(
+          height: 40.w,
+          width: 40.w,
+          child: CircularProgressIndicator(
+                color: ColorManager.yellow,
+                strokeCap: StrokeCap.round,
+                strokeWidth: 5.5,
+              ),
+        ));
   }
 }
