@@ -64,7 +64,7 @@ class CacheData {
     return sharedpref.getString(key);
   }
 
-  static dynamic getdata({required String key}) {
+  static dynamic getData({required String key}) {
     return sharedpref.get(key);
   }
 
