@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:projectx/constant/colors.dart';
-import 'package:projectx/extentions/extentions.dart';
-import 'package:projectx/view/post_details_screen.dart';
-import 'package:projectx/widgets/news_card.dart';
+import 'package:infoflow/constant/colors.dart';
+import 'package:infoflow/extentions/extentions.dart';
+import 'package:infoflow/view/post_details_screen.dart';
+import 'package:infoflow/widgets/news_card.dart';
 
 import '../provider/news_provider.dart';
 import 'my_loading_indicator.dart';
@@ -49,7 +49,10 @@ class NewsListView extends ConsumerWidget {
         );
       },
       loading: () => const SliverToBoxAdapter(
-        child: Center(child: MyLoadingIndicator()),
+        child: Center(
+          heightFactor: 12,
+          child: MyLoadingIndicator(),
+        ),
       ),
       error: (error, stackTrace) => SliverToBoxAdapter(
         child: Center(

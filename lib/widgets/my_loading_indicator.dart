@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:projectx/constant/colors.dart';
+import 'package:infoflow/constant/colors.dart';
 
 class MyLoadingIndicator extends StatelessWidget {
   const MyLoadingIndicator({

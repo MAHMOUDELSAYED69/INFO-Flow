@@ -3,10 +3,12 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:projectx/constant/colors.dart';
-import 'package:projectx/extentions/extentions.dart';
-import 'package:projectx/model/news_model.dart';
-import 'package:projectx/provider/lunch_uri_provider.dart';
+import 'package:infoflow/constant/colors.dart';
+import 'package:infoflow/extentions/extentions.dart';
+import 'package:infoflow/model/news_model.dart';
+import 'package:infoflow/provider/lunch_uri_provider.dart';
+
+import '../constant/images.dart';
 
 class PostDetailsScreen extends ConsumerWidget {
   final NewsModel news;
@@ -26,8 +28,7 @@ class PostDetailsScreen extends ConsumerWidget {
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(10.r),
                     child: Image.network(
-                      news.urlToImage ??
-                          "https://about.fb.com/wp-content/uploads/2023/09/GettyImages-686732223.jpg",
+                      news.urlToImage ?? ImageManager.defaultNetworkImage,
                       height: 240.h,
                       width: context.width,
                       fit: BoxFit.cover,
@@ -36,28 +37,18 @@ class PostDetailsScreen extends ConsumerWidget {
               SizedBox(height: 12.h),
               if (news.title != null)
                 SelectableText(
-                  news.title!,
+                  "${news.title} \n",
                   style: context.textTheme.bodyLarge,
                 ),
-              SizedBox(height: 12.h),
-              if (news.content != null)
-                SelectableText(
-                  news.content!,
-                  style: context.textTheme.bodyMedium,
-                ),
-              SizedBox(height: 12.h),
-              if (news.description != null)
-                SelectableText(
-                  news.description!,
-                  style: context.textTheme.bodyMedium,
-                ),
-              SizedBox(height: 12.h),
+              SelectableText(
+                "${news.content ?? ""}\n\n${news.description ?? ""}\n",
+                style: context.textTheme.bodyMedium,
+              ),
               if (news.author != null)
                 SelectableText(
-                  "Author: ${news.author}",
-                  style: context.textTheme.bodySmall,
+                  "Author: ${news.author ?? ""}\n",
+                  style: context.textTheme.bodyMedium,
                 ),
-              SizedBox(height: 12.h),
               if (news.url != null)
                 GestureDetector(
                   onTap: () {

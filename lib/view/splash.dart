@@ -1,8 +1,7 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:projectx/extentions/extentions.dart';
-import 'package:projectx/view/homepage.dart';
+import 'package:infoflow/extentions/extentions.dart';
+import 'package:infoflow/view/homepage.dart';
 
 import '../constant/colors.dart';
 
@@ -21,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   goToNextScreen() {
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(milliseconds: 2500), () {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
@@ -33,30 +32,37 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            AnimatedTextKit(
-              animatedTexts: [
-                FadeAnimatedText(
-                  "INFO ",
-                  textStyle:
-                      context.textTheme.bodyLarge?.copyWith(fontSize: 30.spMin),
+      body: TweenAnimationBuilder<double>(
+        tween: Tween<double>(begin: 0, end: 1),
+        curve: Curves.bounceOut,
+        duration: const Duration(milliseconds: 1600),
+        builder: (context, value, child) {
+          return Center(
+            child: AnimatedOpacity(
+              duration:const Duration(milliseconds: 1000) ,
+              opacity: value,
+              child: Transform.scale(
+                scale: value,
+                child: RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: "INFO ",
+                        style: context.textTheme.bodyLarge
+                            ?.copyWith(fontSize: 30.spMin),
+                      ),
+                      TextSpan(
+                        text: "Flow",
+                        style: context.textTheme.bodyLarge?.copyWith(
+                            color: ColorManager.yellow, fontSize: 30.spMin),
+                      ),
+                    ],
+                  ),
                 ),
-              ],
+              ),
             ),
-            AnimatedTextKit(
-              animatedTexts: [
-                FadeAnimatedText(
-                  "Flow",
-                  textStyle: context.textTheme.bodyLarge?.copyWith(
-                      color: ColorManager.yellow, fontSize: 30.spMin),
-                ),
-              ],
-            ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }
