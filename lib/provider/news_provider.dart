@@ -8,8 +8,8 @@ import '../services/news_service.dart';
 final newsProvider = FutureProvider.autoDispose
     .family<List<NewsModel>, String>((ref, category) async {
   try {
-    log("reFresh");
-    return await NewsWebService.getNews(category: category.toLowerCase());
+    return await NewsWebService.getNews(category: category.toLowerCase())
+        .whenComplete(() => log("Fetch"));
   } catch (e) {
     return [];
   }

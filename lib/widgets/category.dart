@@ -26,6 +26,7 @@ class CategoryCard extends StatelessWidget {
         child: Text(
           category.title,
           style: context.textTheme.bodyLarge?.copyWith(
+            color: ColorManager.white,
             shadows: [
               Shadow(
                 blurRadius: 10,

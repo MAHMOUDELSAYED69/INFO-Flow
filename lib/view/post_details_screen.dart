@@ -18,54 +18,58 @@ class PostDetailsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(bottom: 16.0, left: 10.0, right: 10.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SafeArea(
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10.r),
-                    child: Image.network(
-                      news.urlToImage ?? ImageManager.defaultNetworkImage,
-                      height: 240.h,
-                      width: context.width,
-                      fit: BoxFit.cover,
-                    )),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SafeArea(
+              child: Image.network(
+                news.urlToImage ?? ImageManager.defaultNetworkImage,
+                height: 240.h,
+                width: context.width,
+                fit: BoxFit.cover,
               ),
-              SizedBox(height: 12.h),
-              if (news.title != null)
-                SelectableText(
-                  "${news.title} \n",
-                  style: context.textTheme.bodyLarge,
-                ),
-              SelectableText(
-                "${news.content ?? ""}\n\n${news.description ?? ""}\n",
-                style: context.textTheme.bodyMedium,
-              ),
-              if (news.author != null)
-                SelectableText(
-                  "Author: ${news.author ?? ""}\n",
-                  style: context.textTheme.bodyMedium,
-                ),
-              if (news.url != null)
-                GestureDetector(
-                  onTap: () {
-                    ref
-                        .read(urlLauncherProvider)
-                        .launchURL(Uri.encodeFull(news.url!));
-                    log("uri");
-                  },
-                  child: Text(
-                    news.url!,
-                    style: context.textTheme.bodySmall
-                        ?.copyWith(color: ColorManager.blue),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.only(bottom: 16.0, left: 10.0, right: 10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 12.h),
+                  if (news.title != null)
+                    SelectableText(
+                      "${news.title} \n",
+                      style: context.textTheme.bodyLarge,
+                    ),
+                  SelectableText(
+                    "${news.content ?? ""}\n\n${news.description ?? ""}\n",
+                    style: context.textTheme.bodyMedium,
                   ),
-                ),
-              SizedBox(height: 12.h),
-            ],
-          ),
+                  if (news.author != null)
+                    SelectableText(
+                      "Author: ${news.author ?? ""}\n",
+                      style: context.textTheme.bodyMedium,
+                    ),
+                  if (news.url != null)
+                    GestureDetector(
+                      onTap: () {
+                        ref
+                            .read(urlLauncherProvider)
+                            .launchURL(Uri.encodeFull(news.url!));
+                        log("uri");
+                      },
+                      child: Text(
+                        news.url!,
+                        style: context.textTheme.bodySmall
+                            ?.copyWith(color: ColorManager.blue),
+                      ),
+                    ),
+                  SizedBox(height: 12.h),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

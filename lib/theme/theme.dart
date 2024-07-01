@@ -31,10 +31,9 @@ abstract class AppTheme {
       // primarySwatch: ColorManager.green ,
       scaffoldBackgroundColor: ColorManager.white,
       appBarTheme: AppBarTheme(
-        scrolledUnderElevation: 0,
+        elevation: 1,
+        shadowColor: ColorManager.grey,
         centerTitle: true,
-        elevation: 0,
-        shadowColor: Colors.transparent,
         color: ColorManager.white,
         iconTheme: IconThemeData(color: ColorManager.yellow),
         titleTextStyle: TextStyle(
@@ -90,10 +89,9 @@ abstract class AppTheme {
       // primarySwatch: ColorManager.green ,
       scaffoldBackgroundColor: ColorManager.black,
       appBarTheme: AppBarTheme(
-        scrolledUnderElevation: 0,
         centerTitle: true,
-        elevation: 0,
-        shadowColor: Colors.transparent,
+        elevation: 5,
+        shadowColor: ColorManager.grey,
         color: ColorManager.black,
         iconTheme: IconThemeData(color: ColorManager.yellow),
         titleTextStyle: TextStyle(
