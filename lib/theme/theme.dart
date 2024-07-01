@@ -7,16 +7,21 @@ abstract class AppTheme {
   //? LIGHT THEME
   static ThemeData get lightTheme {
     return ThemeData(
-      switchTheme:  const SwitchThemeData(
+      switchTheme: const SwitchThemeData(
         trackOutlineColor: WidgetStatePropertyAll(ColorManager.black),
         thumbColor: WidgetStatePropertyAll(ColorManager.black),
         trackColor: WidgetStatePropertyAll(ColorManager.white),
         thumbIcon: WidgetStatePropertyAll(
-           Icon(
+          Icon(
             Icons.light_mode,
             color: ColorManager.white,
           ),
         ),
+      ),
+      textSelectionTheme: TextSelectionThemeData(
+        cursorColor: ColorManager.yellow,
+        selectionColor: ColorManager.yellow.withOpacity(0.3),
+        selectionHandleColor: ColorManager.yellow,
       ),
 
       iconTheme: const IconThemeData(color: ColorManager.black),
@@ -62,7 +67,7 @@ abstract class AppTheme {
   //? DARK THEME
   static ThemeData get darkTheme {
     return ThemeData(
-      switchTheme:  SwitchThemeData(
+      switchTheme: SwitchThemeData(
         trackOutlineColor: const WidgetStatePropertyAll(ColorManager.black),
         thumbColor: const WidgetStatePropertyAll(ColorManager.black),
         trackColor: WidgetStatePropertyAll(ColorManager.yellow),
@@ -73,7 +78,11 @@ abstract class AppTheme {
           ),
         ),
       ),
-
+      textSelectionTheme: TextSelectionThemeData(
+        cursorColor: ColorManager.yellow,
+        selectionColor: ColorManager.yellow.withOpacity(0.3),
+        selectionHandleColor: ColorManager.yellow,
+      ),
       iconTheme: IconThemeData(color: ColorManager.yellow),
       fontFamily: 'Rubik',
       useMaterial3: true,

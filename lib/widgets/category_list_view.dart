@@ -1,39 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:projectx/view/category_screen.dart';
-import 'package:projectx/widgets/category.dart';
+import 'package:infoflow/view/category_screen.dart';
+import 'package:infoflow/widgets/category.dart';
 
+import '../constant/images.dart';
 import '../model/category_model.dart';
 
 class CategoryListView extends StatelessWidget {
   CategoryListView({super.key});
   final List<CategoryModel> categories = [
     CategoryModel(
-      image: 'assets/images/sports.avif',
+      image: ImageManager.sports,
       title: 'Sports',
     ),
     CategoryModel(
-      image: 'assets/images/business.avif',
+      image: ImageManager.business,
       title: 'Business',
     ),
     CategoryModel(
-      image: 'assets/images/technology.jpeg',
+      image: ImageManager.technology,
       title: 'Technology',
     ),
     CategoryModel(
-      image: 'assets/images/entertaiment.avif',
+      image: ImageManager.entertainment,
       title: 'Entertainment',
     ),
     CategoryModel(
-      image: 'assets/images/health.avif',
+      image: ImageManager.health,
       title: 'Health',
     ),
     CategoryModel(
-      image: 'assets/images/science.avif',
+      image: ImageManager.science,
       title: 'Science',
     ),
     CategoryModel(
-      image: 'assets/images/general.avif',
+      image: ImageManager.general,
       title: 'General',
     ),
   ];
@@ -41,22 +42,25 @@ class CategoryListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 100.h,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        physics: const BouncingScrollPhysics(),
-        itemCount: categories.length,
-        itemBuilder: (context, index) => GestureDetector(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => CategoryScreen(
-                    category: categories[index].title,
-                  ),
-                ));
-          },
-          child: CategoryCard(
-            category: categories[index],
+      child: Padding(
+        padding: const EdgeInsets.only(left: 10),
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          physics: const BouncingScrollPhysics(),
+          itemCount: categories.length,
+          itemBuilder: (context, index) => GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CategoryScreen(
+                      category: categories[index].title,
+                    ),
+                  ));
+            },
+            child: CategoryCard(
+              category: categories[index],
+            ),
           ),
         ),
       ),
