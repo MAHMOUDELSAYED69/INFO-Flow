@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:projectx/constant/api_url.dart';
+import 'package:infoflow/constant/api_url.dart';
 
 import '../model/news_model.dart';
 
