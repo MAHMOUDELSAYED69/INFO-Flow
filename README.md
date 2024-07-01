@@ -75,7 +75,6 @@ INFO flow uses the following packages:
 - **flutter_dotenv**: Load environment variables from a `.env` file into the Dart environment.
 - **flutter_riverpod**: A simple yet powerful state management solution for Flutter.
 - **flutter_screenutil**: A Flutter plugin for adapting screen and font size.
-- **http**: A composable, multi-platform, Future-based API for HTTP requests.
 - **intl**: Provides internationalization and localization facilities, including message formatting and date/time parsing.
 - **liquid_pull_to_refresh**: A beautiful and customizable pull-to-refresh effect.
 - **shared_preferences**: Provides persistent storage for simple data types.
