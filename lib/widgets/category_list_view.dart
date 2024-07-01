@@ -9,8 +9,16 @@ class CategoryListView extends StatelessWidget {
   CategoryListView({super.key});
   final List<CategoryModel> categories = [
     CategoryModel(
+      image: 'assets/images/sports.avif',
+      title: 'Sports',
+    ),
+    CategoryModel(
       image: 'assets/images/business.avif',
       title: 'Business',
+    ),
+    CategoryModel(
+      image: 'assets/images/technology.jpeg',
+      title: 'Technology',
     ),
     CategoryModel(
       image: 'assets/images/entertaiment.avif',
@@ -23,14 +31,6 @@ class CategoryListView extends StatelessWidget {
     CategoryModel(
       image: 'assets/images/science.avif',
       title: 'Science',
-    ),
-    CategoryModel(
-      image: 'assets/images/technology.jpeg',
-      title: 'Technology',
-    ),
-    CategoryModel(
-      image: 'assets/images/sports.avif',
-      title: 'Sports',
     ),
     CategoryModel(
       image: 'assets/images/general.avif',

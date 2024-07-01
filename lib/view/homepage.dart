@@ -48,11 +48,15 @@ class HomePage extends ConsumerWidget {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          CategoryListView(),
-          SizedBox(height: 16.h),
-          const Expanded(child: NewsListView())
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: CategoryListView(),
+          ),
+          SliverPadding(
+            padding: EdgeInsets.symmetric(vertical: 16.h),
+            sliver: const NewsListView(),
+          ),
         ],
       ),
     );

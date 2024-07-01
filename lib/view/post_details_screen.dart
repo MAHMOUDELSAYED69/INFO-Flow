@@ -16,22 +16,23 @@ class PostDetailsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.only(bottom: 16.0, left: 10.0, right: 10.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipRRect(
-                  borderRadius: BorderRadius.circular(10.r),
-                  child: Image.network(
-                    news.urlToImage ??
-                        "https://about.fb.com/wp-content/uploads/2023/09/GettyImages-686732223.jpg",
-                    height: 240.h,
-                    width: context.width,
-                    fit: BoxFit.cover,
-                  )),
+              SafeArea(
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10.r),
+                    child: Image.network(
+                      news.urlToImage ??
+                          "https://about.fb.com/wp-content/uploads/2023/09/GettyImages-686732223.jpg",
+                      height: 240.h,
+                      width: context.width,
+                      fit: BoxFit.cover,
+                    )),
+              ),
               SizedBox(height: 12.h),
               if (news.title != null)
                 SelectableText(
@@ -71,6 +72,7 @@ class PostDetailsScreen extends ConsumerWidget {
                         ?.copyWith(color: ColorManager.blue),
                   ),
                 ),
+              SizedBox(height: 12.h),
             ],
           ),
         ),

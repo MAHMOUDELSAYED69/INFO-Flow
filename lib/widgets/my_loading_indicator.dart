@@ -16,7 +16,7 @@ class MyLoadingIndicator extends StatelessWidget {
           child: CircularProgressIndicator(
                 color: ColorManager.yellow,
                 strokeCap: StrokeCap.round,
-                strokeWidth: 5.5,
+                strokeWidth: 5,
               ),
         ));
   }
