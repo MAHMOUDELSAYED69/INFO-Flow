@@ -5,6 +5,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:projectx/cache/cache.dart';
+import 'package:projectx/view/splash.dart';
 
 import 'provider/theme_provider.dart';
 import 'theme/theme.dart';
@@ -47,7 +48,7 @@ class MyApp extends ConsumerWidget {
         theme: theme == ThemeEnum.dark ? AppTheme.lightTheme : AppTheme.darkTheme,
         debugShowCheckedModeBanner: false,
         title: 'Find Hospital',
-        home: const HomePage(),
+        home:const SplashScreen(),
       ),
     );
   }
