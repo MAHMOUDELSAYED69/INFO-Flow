@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:infoflow/extentions/extentions.dart';
 import 'package:infoflow/model/news_model.dart';
 
-import '../constant/images.dart';
+import 'news_image.dart';
 
 class NewsCard extends StatelessWidget {
   const NewsCard({
@@ -18,15 +18,9 @@ class NewsCard extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          ClipRRect(
-              borderRadius: BorderRadius.circular(10.r),
-              child: Image.network(
-                news.urlToImage ??
-                    ImageManager.defaultNetworkImage,
-                height: 165.h,
-                width: double.infinity,
-                fit: BoxFit.cover,
-              )),
+          NewsImage(
+            imageUrl: news.urlToImage,
+          ),
           SizedBox(height: 8.h),
           Text(
             overflow: TextOverflow.ellipsis,

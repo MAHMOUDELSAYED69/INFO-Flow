@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:infoflow/widgets/news_image.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:infoflow/constant/colors.dart';
 import 'package:infoflow/extentions/extentions.dart';
@@ -49,15 +50,7 @@ class CategoryScreen extends ConsumerWidget {
                   title: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Image.network(
-                            news.urlToImage ??
-                                "https://about.fb.com/wp-content/uploads/2023/09/GettyImages-686732223.jpg",
-                            height: 200,
-                            width: double.infinity,
-                            fit: BoxFit.cover,
-                          )),
+                      NewsImage(imageUrl: news.urlToImage),
                       const SizedBox(height: 10),
                       if (news.title != null)
                         Text(
