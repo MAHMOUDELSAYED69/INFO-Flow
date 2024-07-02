@@ -15,10 +15,10 @@ INFO flow is a Flutter-based news app that provides the latest news across vario
 ## Screenshots
 <div style="display: flex; justify-content: space-between;">
   <img src="https://github.com/MAHMOUDELSAYED69/INFO-Flow/assets/133010029/869fd540-b36e-4d37-8b78-6e09c820147d" alt="Screenshot 1" style="width: 24%;"/>
-  <img src="https://github.com/MAHMOUDELSAYED69/INFO-Flow/assets/133010029/85cd344f-aef2-4d2d-bd7e-420920ef20f5" alt="Screenshot 2" style="width: 24%;"/>
-  <img src="https://github.com/MAHMOUDELSAYED69/INFO-Flow/assets/133010029/f8b43482-1f27-4332-a034-ec09647ad3a8" alt="Screenshot 3" style="width: 24%;"/>
-  <img src="https://github.com/MAHMOUDELSAYED69/INFO-Flow/assets/133010029/f60569c4-68ed-4066-8a20-d52b30f1a84f" alt="Screenshot 4" style="width: 24%;"/>
-  <img src="https://github.com/MAHMOUDELSAYED69/INFO-Flow/assets/133010029/d37bfcfe-0cbd-4d4a-b179-c9aa0ea0b3f1" alt="Screenshot 5" style="width: 24%;"/>
+  <img src="https://github.com/MAHMOUDELSAYED69/INFO-Flow/assets/133010029/8147eb4e-2a89-493b-8911-1d7d5d08b36c" alt="Screenshot 2" style="width: 24%;"/>
+  <img src="https://github.com/MAHMOUDELSAYED69/INFO-Flow/assets/133010029/33ba9d30-707f-42a9-a41e-949eba1d657c" alt="Screenshot 3" style="width: 24%;"/>
+  <img src="https://github.com/MAHMOUDELSAYED69/INFO-Flow/assets/133010029/4c1b4aa4-42b4-4719-85db-25426239341c" alt="Screenshot 4" style="width: 24%;"/>
+  <img src="https://github.com/MAHMOUDELSAYED69/INFO-Flow/assets/133010029/2396edea-0a8f-4664-8b08-0e81b9ccea0c" alt="Screenshot 5" style="width: 24%;"/>
   <img src="https://github.com/MAHMOUDELSAYED69/INFO-Flow/assets/133010029/6aba494a-fb19-42b9-ac25-66dc8dcaa08e" alt="Screenshot 6" style="width: 24%;"/>
   <img src="https://github.com/MAHMOUDELSAYED69/INFO-Flow/assets/133010029/a6302730-e335-4c56-8cf2-e3033cd59968" alt="Screenshot 7" style="width: 24%;"/>
   <img src="https://github.com/MAHMOUDELSAYED69/INFO-Flow/assets/133010029/826bcb7d-3751-4a42-aab3-234482258fd2" alt="Screenshot 8" style="width: 24%;"/>
