@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:infoflow/router/app_router.dart';
 import 'package:infoflow/view/splash.dart';
 
 import 'provider/theme_provider.dart';
@@ -33,7 +34,8 @@ class MyApp extends ConsumerWidget {
             theme == ThemeEnum.dark ? AppTheme.lightTheme : AppTheme.darkTheme,
         debugShowCheckedModeBanner: false,
         title: 'Find Hospital',
-        home: const SplashScreen(),
+        initialRoute: RouteManager.initialRoute,
+        onGenerateRoute: AppRouter.onGenerateRoute,
       ),
     );
   }

@@ -9,8 +9,8 @@ import '../provider/theme_provider.dart';
 import '../widgets/category_list_view.dart';
 import '../widgets/news_list_view.dart';
 
-class HomePage extends ConsumerWidget {
-  const HomePage({super.key});
+class HomeScreen extends ConsumerWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

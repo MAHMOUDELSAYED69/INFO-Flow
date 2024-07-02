@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:infoflow/constant/colors.dart';
 import 'package:infoflow/extentions/extentions.dart';
-import 'package:infoflow/view/post_details_screen.dart';
+import 'package:infoflow/router/app_router.dart';
 import 'package:infoflow/widgets/news_card.dart';
 
 import '../provider/news_provider.dart';
+import 'my_divider.dart';
 import 'my_loading_indicator.dart';
 
 class NewsListView extends ConsumerWidget {
@@ -24,24 +24,13 @@ class NewsListView extends ConsumerWidget {
               if (index.isEven) {
                 final article = newsList[(index ~/ 2)];
                 return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PostDetailsScreen(news: article),
-                      ),
-                    );
-                  },
+                  onTap: () => Navigator.pushNamed(
+                      context, RouteManager.postDetails,
+                      arguments: article),
                   child: NewsCard(news: article),
                 );
               } else {
-                return Divider(
-                  color: ColorManager.yellow,
-                  height: 20.h,
-                  thickness: 2,
-                  endIndent: 10,
-                  indent: 10,
-                );
+                return const MyDivider();
               }
             },
             childCount: newsList.length * 2 - 1,

@@ -11,9 +11,9 @@ import 'package:infoflow/provider/lunch_uri_provider.dart';
 import '../constant/images.dart';
 
 class PostDetailsScreen extends ConsumerWidget {
-  final NewsModel news;
+  final NewsModel article;
 
-  const PostDetailsScreen({Key? key, required this.news}) : super(key: key);
+  const PostDetailsScreen({Key? key, required this.article}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -24,7 +24,7 @@ class PostDetailsScreen extends ConsumerWidget {
           children: [
             SafeArea(
               child: Image.network(
-                news.urlToImage ?? ImageManager.defaultNetworkImage,
+                article.urlToImage ?? ImageManager.defaultNetworkImage,
                 height: 240.h,
                 width: context.width,
                 fit: BoxFit.cover,
@@ -37,30 +37,30 @@ class PostDetailsScreen extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 12.h),
-                  if (news.title != null)
+                  if (article.title != null)
                     SelectableText(
-                      "${news.title} \n",
+                      "${article.title} \n",
                       style: context.textTheme.bodyLarge,
                     ),
                   SelectableText(
-                    "${news.content ?? ""}\n\n${news.description ?? ""}\n",
+                    "${article.content ?? ""}\n\n${article.description ?? ""}\n",
                     style: context.textTheme.bodyMedium,
                   ),
-                  if (news.author != null)
+                  if (article.author != null)
                     SelectableText(
-                      "Author: ${news.author ?? ""}\n",
+                      "Author: ${article.author ?? ""}\n",
                       style: context.textTheme.bodyMedium,
                     ),
-                  if (news.url != null)
+                  if (article.url != null)
                     GestureDetector(
                       onTap: () {
                         ref
                             .read(urlLauncherProvider)
-                            .launchURL(Uri.encodeFull(news.url!));
+                            .launchURL(Uri.encodeFull(article.url!));
                         log("uri");
                       },
                       child: Text(
-                        news.url!,
+                        article.url!,
                         style: context.textTheme.bodySmall
                             ?.copyWith(color: ColorManager.blue),
                       ),

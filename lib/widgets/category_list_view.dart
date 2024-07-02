@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:infoflow/view/category_screen.dart';
+import 'package:infoflow/router/app_router.dart';
 import 'package:infoflow/widgets/category.dart';
 
 import '../constant/images.dart';
@@ -43,21 +43,17 @@ class CategoryListView extends StatelessWidget {
     return SizedBox(
       height: 110.h,
       child: Padding(
-        padding: const EdgeInsets.only(left: 10,top: 20),
+        padding: const EdgeInsets.only(left: 10, top: 20),
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           physics: const BouncingScrollPhysics(),
           itemCount: categories.length,
           itemBuilder: (context, index) => GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CategoryScreen(
-                      category: categories[index].title,
-                    ),
-                  ));
-            },
+            onTap: () => Navigator.pushNamed(
+              context,
+              RouteManager.category,
+              arguments: categories[index].title,
+            ),
             child: CategoryCard(
               category: categories[index],
             ),

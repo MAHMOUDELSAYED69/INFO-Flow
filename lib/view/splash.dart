@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:infoflow/extentions/extentions.dart';
-import 'package:infoflow/view/homepage.dart';
+import 'package:infoflow/router/app_router.dart';
 
 import '../constant/colors.dart';
 
@@ -20,13 +20,8 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   goToNextScreen() {
-    Future.delayed(const Duration(milliseconds: 3000), () {
-      Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const HomePage(),
-          ));
-    });
+    Future.delayed(const Duration(milliseconds: 3000),
+        () => Navigator.pushReplacementNamed(context, RouteManager.home));
   }
 
   @override
@@ -39,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
         builder: (context, value, child) {
           return Center(
             child: AnimatedOpacity(
-              duration:const Duration(milliseconds: 1000) ,
+              duration: const Duration(milliseconds: 1000),
               opacity: value,
               child: Transform.scale(
                 scale: value,
