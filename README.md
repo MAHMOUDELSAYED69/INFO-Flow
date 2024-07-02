@@ -4,11 +4,11 @@ INFO flow is a Flutter-based news app that provides the latest news across vario
 
 ## Features
 
-- **Categorized News**: Browse news articles by categories including Sports, Business, Technology, Entertainment, Health, Science, and General.
-- **Theming**: Switch between light and dark themes to suit your preference.
-- **Rich Media**: View news articles with accompanying images.
-- **External Links**: Open news sources in your browser with a single click.
-- **Pull to Refresh**: Refresh news feeds using a smooth liquid pull-to-refresh mechanism.
+- **`Categorized News:`** Browse news articles by categories including Sports, Business, Technology, Entertainment, Health, Science, and General.
+- **`Theming:`** Switch between light and dark themes to suit your preference.
+- **`Rich Media:`** View news articles with accompanying images.
+- **`External Links:`** Open news sources in your browser with a single click.
+- **`Pull to Refresh:`** Refresh news feeds using a smooth liquid pull-to-refresh mechanism.
 
 
 
@@ -28,24 +28,24 @@ INFO flow is a Flutter-based news app that provides the latest news across vario
 
 To get started with INFO flow, follow these steps:
 
-`Step 1:` Clone the Repository
+**`Step 1:`** Clone the Repository
 First, you'll need to clone the repository from GitHub. Open your terminal and run the following command:
 ```
 https://github.com/MAHMOUDELSAYED69/INFO-Flow.git
 ```
 Replace <repository-url> with the actual URL of your repository if it was changed.
 
-`Step 2:` Install Dependencies
+**`Step 2:`** Install Dependencies
 After navigating to the project directory, you need to install all the necessary dependencies. Run:
 ```
 flutter pub get
 ```
 This command fetches all the dependencies listed in the `pubspec.yaml` file.
 
-`Step 3:` Configure the App
+**`Step 3:`** Configure the App
 Ensure all necessary configurations are done. This includes adding your assets and setting up environment variables if needed. Verify that your `pubspec.yaml` file includes all required `assets` and `fonts`.
 
-`Step 4:` Run the Application
+**`Step 4:`** Run the Application
 Finally, run the application on your desired device using the following command:
 `
 ```
@@ -54,7 +54,7 @@ flutter run
 This command compiles your Flutter app and deploys it to the connected device or simulator.
 
 Additional Tips
-`Updating Dependencies:` If there are any updates to the dependencies, you can update them using:
+**`Updating Dependencies:`** If there are any updates to the dependencies, you can update them using:
 ```
 flutter pub upgrade --major-versions
 ```
@@ -70,22 +70,22 @@ By following these steps, you'll have the INFO flow app and running on your devi
 
 INFO flow uses the following packages:
 
-- **dio**: Powerful HTTP client for Dart, supports interceptors, global configuration, and FormData.
-- **flutter**: SDK for building natively compiled applications for mobile, web, and desktop from a single codebase.
-- **flutter_dotenv**: Load environment variables from a `.env` file into the Dart environment.
-- **flutter_riverpod**: A simple yet powerful state management solution for Flutter.
-- **flutter_screenutil**: A Flutter plugin for adapting screen and font size.
-- **intl**: Provides internationalization and localization facilities, including message formatting and date/time parsing.
-- **liquid_pull_to_refresh**: A beautiful and customizable pull-to-refresh effect.
-- **shared_preferences**: Provides persistent storage for simple data types.
-- **url_launcher**: A Flutter plugin for launching URLs in the mobile platform.
+- **`dio`**: Powerful HTTP client for Dart, supports interceptors, global configuration, and FormData.
+- **`flutter`**: SDK for building natively compiled applications for mobile, web, and desktop from a single codebase.
+- **`flutter_dotenv`**: Load environment variables from a `.env` file into the Dart environment.
+- **`flutter_riverpod`**: A simple yet powerful state management solution for Flutter.
+- **`flutter_screenutil`**: A Flutter plugin for adapting screen and font size.
+- **`intl`**: Provides internationalization and localization facilities, including message formatting and date/time parsing.
+- **`liquid_pull_to_refresh`**: A beautiful and customizable pull-to-refresh effect.
+- **`shared_preferences`**: Provides persistent storage for simple data types.
+- **`url_launcher`**: A Flutter plugin for launching URLs in the mobile platform.
 
 ## Usage
 
-1. **Select a Category**: Choose a news category from the home screen to view articles.
-2. **View Articles**: Tap on an article to read the full content, view images, and access external links.
-3. **Switch Theme**: Toggle between light and dark themes from the settings menu.
-4. **Refresh News**: Pull down the news feed to refresh and get the latest articles.
+1. **`Select a Category`**: Choose a news category from the home screen to view articles.
+2. **`View Articles`**: Tap on an article to read the full content, view images, and access external links.
+3. **`Switch Theme`**: Toggle between light and dark themes from the settings menu.
+4. **`Refresh News`**: Pull down the news feed to refresh and get the latest articles.
 
 ## Contributing
 Contributions are welcome! Follow these steps to contribute:
